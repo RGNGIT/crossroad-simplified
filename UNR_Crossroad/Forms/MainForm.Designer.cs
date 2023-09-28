@@ -34,15 +34,6 @@ namespace UNR_Crossroad.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.входToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.входToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.регистрацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.выНеВошлиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.заданиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -72,8 +63,7 @@ namespace UNR_Crossroad.Forms
             this.btn_start = new System.Windows.Forms.Button();
             this.groupBoxRoad = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.panelAuth = new System.Windows.Forms.Panel();
-            this.labelUserAuth = new System.Windows.Forms.Label();
+            this.panel_user = new UNR_Crossroad.BufferedPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -105,11 +95,8 @@ namespace UNR_Crossroad.Forms
             this.label6 = new System.Windows.Forms.Label();
             this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.panel_user = new UNR_Crossroad.BufferedPanel();
             this.panel_admin = new UNR_Crossroad.BufferedPanel();
-            this.menuStrip.SuspendLayout();
+            this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -121,7 +108,6 @@ namespace UNR_Crossroad.Forms
             this.groupBoxCtrl.SuspendLayout();
             this.groupBoxRoad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.panelAuth.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -137,85 +123,19 @@ namespace UNR_Crossroad.Forms
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // menuStrip
-            // 
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.входToolStripMenuItem,
-            this.справкаToolStripMenuItem});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(1536, 24);
-            this.menuStrip.TabIndex = 1;
-            this.menuStrip.Text = "menuStrip";
-            // 
-            // входToolStripMenuItem
-            // 
-            this.входToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.входToolStripMenuItem1,
-            this.регистрацияToolStripMenuItem,
-            this.выНеВошлиToolStripMenuItem});
-            this.входToolStripMenuItem.Name = "входToolStripMenuItem";
-            this.входToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
-            this.входToolStripMenuItem.Text = "Учетная запись";
-            // 
-            // входToolStripMenuItem1
-            // 
-            this.входToolStripMenuItem1.Name = "входToolStripMenuItem1";
-            this.входToolStripMenuItem1.Size = new System.Drawing.Size(147, 22);
-            this.входToolStripMenuItem1.Text = "Вход";
-            this.входToolStripMenuItem1.Click += new System.EventHandler(this.входToolStripMenuItem1_Click);
-            // 
-            // регистрацияToolStripMenuItem
-            // 
-            this.регистрацияToolStripMenuItem.Name = "регистрацияToolStripMenuItem";
-            this.регистрацияToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
-            this.регистрацияToolStripMenuItem.Text = "Регистрация";
-            this.регистрацияToolStripMenuItem.Click += new System.EventHandler(this.регистрацияToolStripMenuItem_Click);
-            // 
-            // выНеВошлиToolStripMenuItem
-            // 
-            this.выНеВошлиToolStripMenuItem.Enabled = false;
-            this.выНеВошлиToolStripMenuItem.Name = "выНеВошлиToolStripMenuItem";
-            this.выНеВошлиToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
-            this.выНеВошлиToolStripMenuItem.Text = "Вы не вошли";
-            // 
-            // справкаToolStripMenuItem
-            // 
-            this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.заданиеToolStripMenuItem,
-            this.оПрограммеToolStripMenuItem});
-            this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.справкаToolStripMenuItem.Text = "Справка";
-            // 
-            // заданиеToolStripMenuItem
-            // 
-            this.заданиеToolStripMenuItem.Name = "заданиеToolStripMenuItem";
-            this.заданиеToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.заданиеToolStripMenuItem.Text = "Задание";
-            this.заданиеToolStripMenuItem.Click += new System.EventHandler(this.заданиеToolStripMenuItem_Click);
-            // 
-            // оПрограммеToolStripMenuItem
-            // 
-            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.оПрограммеToolStripMenuItem.Text = "О программе";
-            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl.Location = new System.Drawing.Point(0, 24);
+            this.tabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1536, 810);
+            this.tabControl.Size = new System.Drawing.Size(1536, 834);
             this.tabControl.TabIndex = 2;
             // 
             // tabPage1
@@ -225,7 +145,7 @@ namespace UNR_Crossroad.Forms
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.tabPage1.Size = new System.Drawing.Size(1528, 781);
+            this.tabPage1.Size = new System.Drawing.Size(1528, 805);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Пользователь";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -243,7 +163,7 @@ namespace UNR_Crossroad.Forms
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1522, 769);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1522, 793);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel_user_dop
@@ -255,12 +175,11 @@ namespace UNR_Crossroad.Forms
             this.panel_user_dop.Controls.Add(this.groupBoxStat);
             this.panel_user_dop.Controls.Add(this.groupBoxCtrl);
             this.panel_user_dop.Controls.Add(this.groupBoxRoad);
-            this.panel_user_dop.Controls.Add(this.panelAuth);
             this.panel_user_dop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_user_dop.Location = new System.Drawing.Point(1271, 6);
             this.panel_user_dop.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.panel_user_dop.Name = "panel_user_dop";
-            this.panel_user_dop.Size = new System.Drawing.Size(248, 757);
+            this.panel_user_dop.Size = new System.Drawing.Size(248, 781);
             this.panel_user_dop.TabIndex = 0;
             // 
             // groupBox6
@@ -273,7 +192,8 @@ namespace UNR_Crossroad.Forms
             this.groupBox6.Controls.Add(this.label17);
             this.groupBox6.Controls.Add(this.numericUpDown7);
             this.groupBox6.Controls.Add(this.numericUpDown8);
-            this.groupBox6.Location = new System.Drawing.Point(0, 297);
+            this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox6.Location = new System.Drawing.Point(0, 321);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(248, 146);
             this.groupBox6.TabIndex = 11;
@@ -336,7 +256,7 @@ namespace UNR_Crossroad.Forms
             0,
             0});
             this.numericUpDown7.Name = "numericUpDown7";
-            this.numericUpDown7.Size = new System.Drawing.Size(56, 23);
+            this.numericUpDown7.Size = new System.Drawing.Size(56, 22);
             this.numericUpDown7.TabIndex = 13;
             this.numericUpDown7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown7.Value = new decimal(new int[] {
@@ -365,7 +285,7 @@ namespace UNR_Crossroad.Forms
             0,
             0});
             this.numericUpDown8.Name = "numericUpDown8";
-            this.numericUpDown8.Size = new System.Drawing.Size(56, 23);
+            this.numericUpDown8.Size = new System.Drawing.Size(56, 22);
             this.numericUpDown8.TabIndex = 10;
             this.numericUpDown8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown8.Value = new decimal(new int[] {
@@ -387,7 +307,8 @@ namespace UNR_Crossroad.Forms
             this.groupBoxStat.Controls.Add(this.label4);
             this.groupBoxStat.Controls.Add(this.label2);
             this.groupBoxStat.Controls.Add(this.label3);
-            this.groupBoxStat.Location = new System.Drawing.Point(0, 449);
+            this.groupBoxStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBoxStat.Location = new System.Drawing.Point(0, 473);
             this.groupBoxStat.Name = "groupBoxStat";
             this.groupBoxStat.Size = new System.Drawing.Size(248, 147);
             this.groupBoxStat.TabIndex = 1;
@@ -400,7 +321,7 @@ namespace UNR_Crossroad.Forms
             this.tbCpm.Enabled = false;
             this.tbCpm.Location = new System.Drawing.Point(201, 112);
             this.tbCpm.Name = "tbCpm";
-            this.tbCpm.Size = new System.Drawing.Size(41, 23);
+            this.tbCpm.Size = new System.Drawing.Size(41, 22);
             this.tbCpm.TabIndex = 4;
             this.tbCpm.Text = "0";
             this.tbCpm.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -411,7 +332,7 @@ namespace UNR_Crossroad.Forms
             this.tbCur.Enabled = false;
             this.tbCur.Location = new System.Drawing.Point(201, 25);
             this.tbCur.Name = "tbCur";
-            this.tbCur.Size = new System.Drawing.Size(41, 23);
+            this.tbCur.Size = new System.Drawing.Size(41, 22);
             this.tbCur.TabIndex = 2;
             this.tbCur.Text = "0";
             this.tbCur.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -422,7 +343,7 @@ namespace UNR_Crossroad.Forms
             this.tbAll.Enabled = false;
             this.tbAll.Location = new System.Drawing.Point(201, 54);
             this.tbAll.Name = "tbAll";
-            this.tbAll.Size = new System.Drawing.Size(41, 23);
+            this.tbAll.Size = new System.Drawing.Size(41, 22);
             this.tbAll.TabIndex = 1;
             this.tbAll.Text = "0";
             this.tbAll.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -433,7 +354,7 @@ namespace UNR_Crossroad.Forms
             this.tbTime.Enabled = false;
             this.tbTime.Location = new System.Drawing.Point(201, 83);
             this.tbTime.Name = "tbTime";
-            this.tbTime.Size = new System.Drawing.Size(41, 23);
+            this.tbTime.Size = new System.Drawing.Size(41, 22);
             this.tbTime.TabIndex = 3;
             this.tbTime.Text = "0  c";
             this.tbTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -443,7 +364,7 @@ namespace UNR_Crossroad.Forms
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.textBox1.Location = new System.Drawing.Point(223, 48);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(0, 23);
+            this.textBox1.Size = new System.Drawing.Size(0, 22);
             this.textBox1.TabIndex = 0;
             // 
             // label1
@@ -487,7 +408,8 @@ namespace UNR_Crossroad.Forms
             this.groupBoxCtrl.Controls.Add(this.button9);
             this.groupBoxCtrl.Controls.Add(this.btn_stop);
             this.groupBoxCtrl.Controls.Add(this.btn_start);
-            this.groupBoxCtrl.Location = new System.Drawing.Point(0, 602);
+            this.groupBoxCtrl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBoxCtrl.Location = new System.Drawing.Point(0, 626);
             this.groupBoxCtrl.Name = "groupBoxCtrl";
             this.groupBoxCtrl.Size = new System.Drawing.Size(248, 154);
             this.groupBoxCtrl.TabIndex = 1;
@@ -562,9 +484,10 @@ namespace UNR_Crossroad.Forms
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxRoad.Controls.Add(this.dataGridView2);
-            this.groupBoxRoad.Location = new System.Drawing.Point(0, 26);
+            this.groupBoxRoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBoxRoad.Location = new System.Drawing.Point(0, -1);
             this.groupBoxRoad.Name = "groupBoxRoad";
-            this.groupBoxRoad.Size = new System.Drawing.Size(248, 265);
+            this.groupBoxRoad.Size = new System.Drawing.Size(248, 316);
             this.groupBoxRoad.TabIndex = 0;
             this.groupBoxRoad.TabStop = false;
             this.groupBoxRoad.Text = "Дорога";
@@ -575,7 +498,7 @@ namespace UNR_Crossroad.Forms
             this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -584,39 +507,26 @@ namespace UNR_Crossroad.Forms
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 19);
+            this.dataGridView2.Location = new System.Drawing.Point(3, 18);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(242, 243);
+            this.dataGridView2.Size = new System.Drawing.Size(242, 295);
             this.dataGridView2.TabIndex = 1;
             // 
-            // panelAuth
+            // panel_user
             // 
-            this.panelAuth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelAuth.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelAuth.Controls.Add(this.labelUserAuth);
-            this.panelAuth.Location = new System.Drawing.Point(-1, -1);
-            this.panelAuth.Name = "panelAuth";
-            this.panelAuth.Size = new System.Drawing.Size(248, 21);
-            this.panelAuth.TabIndex = 1;
-            // 
-            // labelUserAuth
-            // 
-            this.labelUserAuth.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelUserAuth.Location = new System.Drawing.Point(0, 0);
-            this.labelUserAuth.Name = "labelUserAuth";
-            this.labelUserAuth.Size = new System.Drawing.Size(246, 17);
-            this.labelUserAuth.TabIndex = 2;
-            this.labelUserAuth.Text = "Вы не вошли";
-            this.labelUserAuth.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelUserAuth.Click += new System.EventHandler(this.входToolStripMenuItem1_Click);
+            this.panel_user.BackColor = System.Drawing.Color.ForestGreen;
+            this.panel_user.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_user.Location = new System.Drawing.Point(3, 3);
+            this.panel_user.Name = "panel_user";
+            this.panel_user.Size = new System.Drawing.Size(1262, 787);
+            this.panel_user.TabIndex = 1;
             // 
             // tabPage2
             // 
@@ -625,7 +535,7 @@ namespace UNR_Crossroad.Forms
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.tabPage2.Size = new System.Drawing.Size(1528, 781);
+            this.tabPage2.Size = new System.Drawing.Size(1528, 805);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Администратор";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -643,7 +553,7 @@ namespace UNR_Crossroad.Forms
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1522, 769);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1522, 793);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // panel1
@@ -656,12 +566,11 @@ namespace UNR_Crossroad.Forms
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox4);
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(1271, 6);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(248, 757);
+            this.panel1.Size = new System.Drawing.Size(248, 781);
             this.panel1.TabIndex = 0;
             // 
             // groupBox5
@@ -670,9 +579,9 @@ namespace UNR_Crossroad.Forms
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.dataGridView1);
-            this.groupBox5.Location = new System.Drawing.Point(0, 26);
+            this.groupBox5.Location = new System.Drawing.Point(0, -1);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(248, 271);
+            this.groupBox5.Size = new System.Drawing.Size(248, 322);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Дорога";
@@ -683,7 +592,7 @@ namespace UNR_Crossroad.Forms
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -692,16 +601,16 @@ namespace UNR_Crossroad.Forms
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 19);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 18);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(242, 249);
+            this.dataGridView1.Size = new System.Drawing.Size(242, 301);
             this.dataGridView1.TabIndex = 0;
             // 
             // groupBox3
@@ -716,7 +625,7 @@ namespace UNR_Crossroad.Forms
             this.groupBox3.Controls.Add(this.numericUpDown2);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.numericUpDown4);
-            this.groupBox3.Location = new System.Drawing.Point(0, 421);
+            this.groupBox3.Location = new System.Drawing.Point(0, 445);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(248, 91);
             this.groupBox3.TabIndex = 15;
@@ -729,7 +638,7 @@ namespace UNR_Crossroad.Forms
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(135, 57);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(59, 17);
+            this.label13.Size = new System.Drawing.Size(56, 16);
             this.label13.TabIndex = 19;
             this.label13.Text = "Нижняя";
             // 
@@ -748,7 +657,7 @@ namespace UNR_Crossroad.Forms
             0,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(41, 23);
+            this.numericUpDown1.Size = new System.Drawing.Size(41, 22);
             this.numericUpDown1.TabIndex = 10;
             this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown1.Value = new decimal(new int[] {
@@ -762,7 +671,7 @@ namespace UNR_Crossroad.Forms
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(6, 57);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(63, 17);
+            this.label14.Size = new System.Drawing.Size(60, 16);
             this.label14.TabIndex = 17;
             this.label14.Text = "Верхняя";
             // 
@@ -771,7 +680,7 @@ namespace UNR_Crossroad.Forms
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(6, 23);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(57, 17);
+            this.label11.Size = new System.Drawing.Size(56, 16);
             this.label11.TabIndex = 12;
             this.label11.Text = "Правая";
             // 
@@ -790,7 +699,7 @@ namespace UNR_Crossroad.Forms
             0,
             0});
             this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(41, 23);
+            this.numericUpDown3.Size = new System.Drawing.Size(41, 22);
             this.numericUpDown3.TabIndex = 18;
             this.numericUpDown3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown3.Value = new decimal(new int[] {
@@ -814,7 +723,7 @@ namespace UNR_Crossroad.Forms
             0,
             0});
             this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(41, 23);
+            this.numericUpDown2.Size = new System.Drawing.Size(41, 22);
             this.numericUpDown2.TabIndex = 13;
             this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown2.Value = new decimal(new int[] {
@@ -829,7 +738,7 @@ namespace UNR_Crossroad.Forms
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(135, 23);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(49, 17);
+            this.label12.Size = new System.Drawing.Size(47, 16);
             this.label12.TabIndex = 14;
             this.label12.Text = "Левая";
             // 
@@ -848,7 +757,7 @@ namespace UNR_Crossroad.Forms
             0,
             0});
             this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(41, 23);
+            this.numericUpDown4.Size = new System.Drawing.Size(41, 22);
             this.numericUpDown4.TabIndex = 15;
             this.numericUpDown4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown4.Value = new decimal(new int[] {
@@ -866,7 +775,7 @@ namespace UNR_Crossroad.Forms
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Location = new System.Drawing.Point(0, 608);
+            this.groupBox2.Location = new System.Drawing.Point(0, 632);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(248, 151);
             this.groupBox2.TabIndex = 1;
@@ -942,7 +851,7 @@ namespace UNR_Crossroad.Forms
             this.groupBox4.Controls.Add(this.checkBox1);
             this.groupBox4.Controls.Add(this.checkBox3);
             this.groupBox4.Controls.Add(this.checkBox2);
-            this.groupBox4.Location = new System.Drawing.Point(0, 518);
+            this.groupBox4.Location = new System.Drawing.Point(0, 542);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(248, 84);
             this.groupBox4.TabIndex = 15;
@@ -954,7 +863,7 @@ namespace UNR_Crossroad.Forms
             this.checkBox4.AutoSize = true;
             this.checkBox4.Location = new System.Drawing.Point(9, 49);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(75, 21);
+            this.checkBox4.Size = new System.Drawing.Size(75, 20);
             this.checkBox4.TabIndex = 20;
             this.checkBox4.Text = "Справа";
             this.checkBox4.UseVisualStyleBackColor = true;
@@ -963,9 +872,9 @@ namespace UNR_Crossroad.Forms
             // 
             this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(119, 22);
+            this.checkBox1.Location = new System.Drawing.Point(118, 22);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(66, 21);
+            this.checkBox1.Size = new System.Drawing.Size(67, 20);
             this.checkBox1.TabIndex = 17;
             this.checkBox1.Text = "Внизу";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -975,7 +884,7 @@ namespace UNR_Crossroad.Forms
             this.checkBox3.AutoSize = true;
             this.checkBox3.Location = new System.Drawing.Point(9, 22);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(67, 21);
+            this.checkBox3.Size = new System.Drawing.Size(67, 20);
             this.checkBox3.TabIndex = 19;
             this.checkBox3.Text = "Слева";
             this.checkBox3.UseVisualStyleBackColor = true;
@@ -984,9 +893,9 @@ namespace UNR_Crossroad.Forms
             // 
             this.checkBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(119, 49);
+            this.checkBox2.Location = new System.Drawing.Point(118, 49);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(72, 21);
+            this.checkBox2.Size = new System.Drawing.Size(73, 20);
             this.checkBox2.TabIndex = 18;
             this.checkBox2.Text = "Вверху";
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -1000,7 +909,7 @@ namespace UNR_Crossroad.Forms
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.numericUpDown5);
             this.groupBox1.Controls.Add(this.numericUpDown6);
-            this.groupBox1.Location = new System.Drawing.Point(0, 303);
+            this.groupBox1.Location = new System.Drawing.Point(0, 327);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(248, 112);
             this.groupBox1.TabIndex = 10;
@@ -1020,7 +929,7 @@ namespace UNR_Crossroad.Forms
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(6, 28);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(187, 17);
+            this.label7.Size = new System.Drawing.Size(187, 16);
             this.label7.TabIndex = 11;
             this.label7.Text = "Интервалы зеленого света";
             // 
@@ -1047,7 +956,7 @@ namespace UNR_Crossroad.Forms
             0,
             0});
             this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(41, 23);
+            this.numericUpDown5.Size = new System.Drawing.Size(41, 22);
             this.numericUpDown5.TabIndex = 13;
             this.numericUpDown5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown5.Value = new decimal(new int[] {
@@ -1071,7 +980,7 @@ namespace UNR_Crossroad.Forms
             0,
             0});
             this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(41, 23);
+            this.numericUpDown6.Size = new System.Drawing.Size(41, 22);
             this.numericUpDown6.TabIndex = 10;
             this.numericUpDown6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown6.Value = new decimal(new int[] {
@@ -1080,42 +989,21 @@ namespace UNR_Crossroad.Forms
             0,
             0});
             // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(246, 21);
-            this.panel2.TabIndex = 1;
-            // 
-            // label9
-            // 
-            this.label9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label9.Location = new System.Drawing.Point(0, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(244, 17);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Вы не вошли";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label9.Click += new System.EventHandler(this.входToolStripMenuItem1_Click);
-            // 
-            // panel_user
-            // 
-            this.panel_user.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_user.Location = new System.Drawing.Point(3, 3);
-            this.panel_user.Name = "panel_user";
-            this.panel_user.Size = new System.Drawing.Size(1262, 763);
-            this.panel_user.TabIndex = 1;
-            // 
             // panel_admin
             // 
             this.panel_admin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_admin.Location = new System.Drawing.Point(3, 3);
             this.panel_admin.Name = "panel_admin";
-            this.panel_admin.Size = new System.Drawing.Size(1262, 763);
+            this.panel_admin.Size = new System.Drawing.Size(1262, 787);
             this.panel_admin.TabIndex = 1;
+            // 
+            // entityCommand1
+            // 
+            this.entityCommand1.CommandTimeout = 0;
+            this.entityCommand1.CommandTree = null;
+            this.entityCommand1.Connection = null;
+            this.entityCommand1.EnablePlanCaching = true;
+            this.entityCommand1.Transaction = null;
             // 
             // MainForm
             // 
@@ -1123,18 +1011,12 @@ namespace UNR_Crossroad.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1536, 834);
             this.Controls.Add(this.tabControl);
-            this.Controls.Add(this.menuStrip);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Модель перекрестка";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.menuStrip.ResumeLayout(false);
-            this.menuStrip.PerformLayout();
+            this.Text = "Перекресток";
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -1147,7 +1029,6 @@ namespace UNR_Crossroad.Forms
             this.groupBoxCtrl.ResumeLayout(false);
             this.groupBoxRoad.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.panelAuth.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -1166,27 +1047,18 @@ namespace UNR_Crossroad.Forms
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private MenuStrip menuStrip;
-        private ToolStripMenuItem входToolStripMenuItem;
         private TabControl tabControl;
         private TabPage tabPage1;
         private TabPage tabPage2;
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panel_user_dop;
         private Button btn_start;
-        private ToolStripMenuItem входToolStripMenuItem1;
-        private ToolStripMenuItem регистрацияToolStripMenuItem;
-        private ToolStripMenuItem выНеВошлиToolStripMenuItem;
         private BufferedPanel panel_user;
-        private Label labelUserAuth;
-        private Panel panelAuth;
         private GroupBox groupBoxRoad;
         private GroupBox groupBoxCtrl;
         private Button btn_stop;
@@ -1206,8 +1078,6 @@ namespace UNR_Crossroad.Forms
         private GroupBox groupBox2;
         private Button button3;
         private Button button4;
-        private Panel panel2;
-        private Label label9;
         private BufferedPanel panel_admin;
         private Label label5;
         private NumericUpDown numericUpDown5;
@@ -1244,8 +1114,6 @@ namespace UNR_Crossroad.Forms
         private Button button8;
         private Button button9;
         private DataGridView dataGridView2;
-        private ToolStripMenuItem справкаToolStripMenuItem;
-        private ToolStripMenuItem заданиеToolStripMenuItem;
-        private ToolStripMenuItem оПрограммеToolStripMenuItem;
+        private System.Data.Entity.Core.EntityClient.EntityCommand entityCommand1;
     }
 }

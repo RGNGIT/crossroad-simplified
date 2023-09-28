@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
 using UNR_Crossroad.Core;
@@ -27,7 +25,25 @@ namespace UNR_Crossroad.Forms
             Engine.Initialization();
             tabControl.TabPages[1].Enabled = false;
             tabControl.TabPages[0].Enabled = false;
+            // Загрузить картинки
             new Thread(() => Sprite.LoadCarSpriteLib()).Start();
+            Thread.Sleep(10000);
+            // Произвести автологин (перед этим создать админа)
+            AutoAuthWorks();
+        }
+
+        void AutoAuthWorks()
+        {
+            DbEngine.Connect();
+            if (!DbEngine.LoginCheck("admin"))
+                DbEngine.AddUser("admin", "123", (int)AccLevel.Admin);
+
+            myUser = new User("admin", "123", AccLevel.Admin);
+
+            tabControl.TabPages[1].Enabled = true;
+            tabControl.TabPages[0].Enabled = true;
+
+            DbEngine.Close();
         }
 
         private void btn_ch_road_Click(object sender, EventArgs e)
@@ -50,36 +66,6 @@ namespace UNR_Crossroad.Forms
             TrafficLight.Clear();
             button9.Enabled = true;
         }
-
-
-        #region Верхнее меню
-        private void входToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            var auth = new AuthForm();
-            if (auth.ShowDialog() == DialogResult.OK)
-            {
-                myUser = auth.GetUser();
-                выНеВошлиToolStripMenuItem.Text = "Вы вошли как " + myUser.Level;
-                labelUserAuth.Text = "Вы вошли как " + myUser.Level;
-                label9.Text = "Вы вошли как " + myUser.Level;
-                if (myUser.Level == AccLevel.Admin)
-                {
-                    tabControl.TabPages[1].Enabled = true;
-                    tabControl.TabPages[0].Enabled = true;
-                }
-                if (myUser.Level == AccLevel.Player)
-                {
-                    tabControl.TabPages[1].Enabled = false;
-                    tabControl.TabPages[0].Enabled = true;
-                }
-            }
-        }
-        private void регистрацияToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new RegForm().ShowDialog();
-        }
-        #endregion
-        
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -219,16 +205,6 @@ namespace UNR_Crossroad.Forms
                     btn_start.Enabled = true;
                 }
             }
-        }
-
-        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new AboutForm().ShowDialog();
-        }
-
-        private void заданиеToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new ZadanieForm().ShowDialog();
         }
     }
 }
