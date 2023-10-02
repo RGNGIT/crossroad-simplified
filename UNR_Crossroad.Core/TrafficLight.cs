@@ -7,14 +7,20 @@ using System.Windows.Forms;
 
 namespace UNR_Crossroad.Core
 {
+    // Класс светофоров
     public class TrafficLight
     {
+        // Координата положения
         public Point Place { get; set; }
+        // Текущий свет светофора
         public Lights CurrLight { get; set; }
+        // Следующий свет светофора
         public Lights NextLight { get; set; }
+        // Интервал
         public int CurrInterval { get; set; }
+        // Ориентация
         public Osb LightOsb { get; set; }
-
+        // Конструктор класса
         public TrafficLight(Point pl, Lights lights, int interval, Osb osb)
         {
             Place = pl;
@@ -23,7 +29,7 @@ namespace UNR_Crossroad.Core
             NextLight = CurrLight == Lights.Green ? Lights.Red : Lights.Green;
             LightOsb = osb;
         }
-
+        // Тут создаем 4 светофора на каждую дорогу
         public static void CreateLight()
         {
                 Engine.TrafficLights[0] = new TrafficLight(new Point(Engine.UserPanel.Width / 2 - Engine.CurrentRoad.VerticalRoadLeft * 40 - 40, Engine.UserPanel.Height / 2 - Engine.CurrentRoad.HorizontRoadUp * 40 - 215), Lights.Green,
@@ -35,7 +41,7 @@ namespace UNR_Crossroad.Core
                 Engine.TrafficLights[3] = new TrafficLight(new Point(Engine.UserPanel.Width / 2 + Engine.CurrentRoad.VerticalRoadRight * 40, Engine.UserPanel.Height / 2 + Engine.CurrentRoad.HorizontRoadDown * 40 + 114), Lights.Green,
                 Engine.LightsInterval1, Osb.Down);
         }
-
+        // Рендеринг света светофора
         public static void RenderLight(TrafficLight tl, Panel p, PaintEventArgs e)
         {
             switch (tl.CurrLight)
@@ -52,7 +58,7 @@ namespace UNR_Crossroad.Core
             }
             
         }
-
+        // Выбранный свет
         public static Bitmap ChoosenLight(Osb l, int i)
         {
             switch (l)
@@ -68,7 +74,7 @@ namespace UNR_Crossroad.Core
             }
             return Sprite.SpriteLibUpLights[i];
         }
-
+        // Поменять свет светофора
         public static void SwitchLight()
         {
             foreach (var light in Engine.TrafficLights)
@@ -92,7 +98,7 @@ namespace UNR_Crossroad.Core
                 }
             }
         }
-
+        // Очистить светофоры
         public static void Clear()
         {
             for (int i = 0; i < Engine.TrafficLights.Length; i++)
@@ -100,11 +106,12 @@ namespace UNR_Crossroad.Core
                 Engine.TrafficLights[i] = null;
             }
         }
-
+        // Возможные цвета светофора
         public enum Lights
         {
             Red, Yellow, Green
         }
+        // Ориентация
         public enum Osb
         {
             Up, Down, Left, Right

@@ -3,21 +3,32 @@ using System.Drawing;
 
 namespace UNR_Crossroad.Core
 {
+    // Класс "Машина"
     public class Car : IMovementMember
     {
+        // Координата X
         public int X { get; set; }
+        // Координата Y
         public int Y { get; set; }
+        // Скорость
         public int Speed { get; set; }
+        // Изображение
         public Bitmap Sprite { get; set; }
+        // Номер спрайта в памяти. Для изображения поворотов и прочее
         public int NSprite { get; set; }
+        // Направление
         public Vector Direct { get; set; }
+        // В какой полосе
         public int Polosa { get; set; }
+        // Счетчики начала и конца проезда
         public int StartRoadCount { get; set; }
         public int FinishRoadCount { get; set; }
+        // Стартовая дорога и текущая дорога
         public Side StartRoad { get; set; }
         public Side CurrRoad { get; set; }
+        // Поворот
         public CTurn Turn { get; set; }
-
+        // Конструктор класса, чтобы инициализировать данными на старте (те что выше)
         public Car(int x, int y, int speed, Bitmap sprite,int nspr, Vector dir, int polosa, int src, int frc, Side cr,CTurn ct)
         {
             X = x;
@@ -33,7 +44,7 @@ namespace UNR_Crossroad.Core
             NSprite = nspr;
             CurrRoad = cr;
         }
-
+        // В зависимости от того, в каком сейчас положении машина (на повороте, светофоре) меняем скорость машины
         public static int CanMove(Car c)
         {
             switch (c.StartRoad)
@@ -81,7 +92,7 @@ namespace UNR_Crossroad.Core
             }
             return 3;
         }
-
+        // Проверка на то, что машина может продолжать движение с ненулевой скоростью
         public static bool Check(Car c)
         {
             switch (c.CurrRoad)

@@ -7,18 +7,27 @@ using System.Threading.Tasks;
 
 namespace UNR_Crossroad.Core
 {
+    // Класс пешехода
     public class People : IMovementMember
     {
+        // Координата X
         public int X { get; set; }
+        // Координата Y
         public int Y { get; set; }
+        // Скорость
         public int Speed { get; set; }
+        // Изображение
         public Bitmap Sprite { get; set; }
+        // Номер спрайта
         public int NSprite { get; set; }
+        // Направление
         public Vector Direct { get; set; }
+        // Сторона (куда идет)
         public Side Pside { get; set; }
+        // Выставлена ли правая нога (ну типа в один момент у нас может быть выставлена только левая или только правая нога, значит 0 или 1)
         public bool IsRightLeg { get; set; }
 
-
+        // Конструктор класса. Заполняем начальными данными
         public People(int x, int y, int speed, Bitmap sprite,int ns, Vector dir, Side cr)
         {
             X = x;
@@ -30,7 +39,7 @@ namespace UNR_Crossroad.Core
             IsRightLeg = true;
             NSprite = ns;
         }
-
+        // Сменить выставленную вперед ногу (поменять спрайт)
         public static void ChangeLeg(People p)
         {
             switch (p.Pside)

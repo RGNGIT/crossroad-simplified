@@ -8,20 +8,25 @@ using System.Windows.Forms;
 
 namespace UNR_Crossroad.Core
 {
+    // Класс пешеходного перехода
     public class RoadTransit
     {
+        // Верхняя дорога
         public bool UpRoad { get; set; }
+        // Нижняя дорога
         public bool DownRoad { get; set; }
+        // Левая дорога
         public bool LeftRoad { get; set; }
+        // Правая дорога
         public bool RightRoad { get; set; }
 
         public int VerticalRoadLeft { get; set; }
         public int VerticalRoadRight { get; set; }
         public int HorizontRoadUp { get; set; }
         public int HorizontRoadDown { get; set; }
-
+        // Ручка для зарисовки пешеходного перехода
         private Pen _myPen;
-
+        // Конструктор класса, заполняем значениями по-умолчанию
         public RoadTransit(bool upRoad, bool downRoad, bool leftRoad, bool rightRoad, int vertLeft, int vertRight, int horUp, int horDown)
         {
             UpRoad = upRoad;
@@ -35,7 +40,7 @@ namespace UNR_Crossroad.Core
             HorizontRoadUp = horUp;
             HorizontRoadDown = horDown;
         }
-
+        // Рендерим (рисуем) переходы для каждой дороги
         public void RenderRoadTransit(Panel p, PaintEventArgs e)
         {
             int width = 9;

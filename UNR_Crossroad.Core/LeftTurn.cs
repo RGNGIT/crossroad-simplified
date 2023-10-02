@@ -1,10 +1,12 @@
-﻿
-namespace UNR_Crossroad.Core
+﻿namespace UNR_Crossroad.Core
 {
+    // Класс события поворота налево
     public class LeftTurn : Turn
     {
+        // Начать поворот
         public override void StartTurn(Car c)
         {
+            // Проверка полос
             int t = CheckLanes(c.Polosa, c.StartRoadCount, c.FinishRoadCount);
             switch (c.StartRoad)
             {
@@ -46,7 +48,7 @@ namespace UNR_Crossroad.Core
                     break;
             }
         }
-
+        // Далее просто различные вариации поворотов, которые вызываются сверху
         public override void PovorotU(Car c)
         {
             c.Direct = new Vector(c.Direct.X - 0.007, c.Direct.Y + 0.12);

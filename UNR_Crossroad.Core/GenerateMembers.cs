@@ -3,8 +3,10 @@ using System.Drawing;
 
 namespace UNR_Crossroad.Core
 {
+    // Класс-спавнер подвижных элементов (пешеходов, машин)
     public static class GenerateMembers
     {
+        // Вертикальное положение машин справа спавн
         public static void VerticalRightCar()
         {
             int polosa = Engine.R.Next(0, Engine.CurrentRoad.VerticalRoadRight);
@@ -22,7 +24,7 @@ namespace UNR_Crossroad.Core
                     Engine.CurrentRoad.HorizontRoadUp, Side.Right, RoadPass.WhatIsTurn(polosa + 1, Engine.CurrentRoad.VerticalRoadRight)));
             }
         }
-
+        // Вертикальное положение машин слева спавн
         public static void VerticalLeftCar()
         {
             int polosa = Engine.R.Next(0, Engine.CurrentRoad.VerticalRoadLeft);
@@ -38,7 +40,7 @@ namespace UNR_Crossroad.Core
                     Engine.CurrentRoad.VerticalRoadLeft, Engine.CurrentRoad.HorizontRoadDown, Side.Left, RoadPass.WhatIsTurn(polosa + 1, Engine.CurrentRoad.VerticalRoadLeft)));
             }
         }
-
+        // Горизонтальное положение машин сверху спавн
         public static void HorizontalUpCar()
         {
             int polosa = Engine.R.Next(0, Engine.CurrentRoad.HorizontRoadUp);
@@ -55,7 +57,7 @@ namespace UNR_Crossroad.Core
                     new Vector(-1, 0), polosa + 1, Engine.CurrentRoad.HorizontRoadUp, Engine.CurrentRoad.VerticalRoadLeft, Side.Up, RoadPass.WhatIsTurn(polosa + 1, Engine.CurrentRoad.HorizontRoadUp)));
             }
         }
-
+        // Горизонтальное положение машин снизу спавн
         public static void HorizontalDownCar()
         {
             int polosa = Engine.R.Next(0, Engine.CurrentRoad.HorizontRoadDown);
@@ -70,7 +72,7 @@ namespace UNR_Crossroad.Core
                     Engine.CurrentRoad.HorizontRoadDown, Engine.CurrentRoad.VerticalRoadRight, Side.Down, RoadPass.WhatIsTurn(polosa + 1, Engine.CurrentRoad.HorizontRoadDown)));
             }
         }
-
+        // Люди снизу
         public static void DownPeople()
         {
             int sprite = Engine.R.Next(0, 18);
@@ -85,6 +87,7 @@ namespace UNR_Crossroad.Core
                 Engine.Peoples.Add(new People(Engine.UserPanel.Width / 2 + Engine.CurrentRoad.VerticalRoadRight * 40 + 80, Engine.UserPanel.Height / 2 + Engine.CurrentRoad.HorizontRoadDown * 40 + 73, 8, Sprite.SpriteLibRightPeople1[sprite],sprite, new Vector(-1, 0), Side.Left));
             }
         }
+        // Люди сверху
         public static void UpPeople()
         {
             int sprite = Engine.R.Next(0, 18);
@@ -99,6 +102,7 @@ namespace UNR_Crossroad.Core
                 Engine.Peoples.Add(new People(Engine.UserPanel.Width / 2 + Engine.CurrentRoad.VerticalRoadRight * 40 + 80, Engine.UserPanel.Height / 2 - Engine.CurrentRoad.HorizontRoadUp * 40 - 101, 8, Sprite.SpriteLibRightPeople1[sprite], sprite, new Vector(-1, 0), Side.Left));
             }
         }
+        // Люди справа
         public static void RightPeople()
         {
             int sprite = Engine.R.Next(0, 18);
@@ -113,6 +117,7 @@ namespace UNR_Crossroad.Core
                 Engine.Peoples.Add(new People(Engine.UserPanel.Width / 2 + Engine.CurrentRoad.VerticalRoadRight * 40 + 73, Engine.UserPanel.Height / 2 + Engine.CurrentRoad.HorizontRoadDown * 40 + 80, 8, Sprite.SpriteLibRightPeople1[sprite], sprite, new Vector(0, -1), Side.Up));
             }
         }
+        // Люди слева
         public static void LeftPeople()
         {
             int sprite = Engine.R.Next(0, 18);

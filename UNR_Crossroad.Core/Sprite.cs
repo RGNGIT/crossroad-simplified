@@ -9,20 +9,22 @@ using System.Windows.Forms;
 
 namespace UNR_Crossroad.Core
 {
+    // Класс для загрузки спрайтов (картинок) из проводника в программу
     public static class Sprite
     {
+        // Временный битмап
         private static Bitmap _tmpBitmap;
-
+        // Всевозможные цвета для машин и пешеходов
         public static string[] Color =
         {
             "blue", "green", "orange", "purple", "red", "yellow"
         };
-
+        // Цвета волос для пешеходов
         public static string[] Hair =
         {
             "Blond", "Brown", "Black"
         };
-
+        // Массивы с названиями и картинками
         public static string[] CarFileName = new string[42];
         public static Bitmap[] SpriteLibUp = new Bitmap[42];
         public static Bitmap[] SpriteLibDown = new Bitmap[42];
@@ -45,8 +47,8 @@ namespace UNR_Crossroad.Core
 
         public static Label Lb { get; set; }
         public static bool IsDone { get; set; }
-        private static int _delay = 20;
-
+        private static int _delay = 1;
+        // Метод, который вызывает все методы для загрузки спрайтов
         public static void LoadCarSpriteLib() 
         {
             LoadCarFileName();
@@ -66,8 +68,7 @@ namespace UNR_Crossroad.Core
             Thread.Sleep(1000);
             IsDone = true;
         }
-
-
+        // Загрузка машин
         private static void LoadCarFileName()
         {
             for (int i = 0; i < CarFileName.Length;)
@@ -82,6 +83,7 @@ namespace UNR_Crossroad.Core
                 }
             }
         }
+        // Загрузка пешеходов
         private static void LoadPeopleFileName()
         {
             for (int i = 0; i < PeopleFileName1.Length;)
@@ -97,7 +99,7 @@ namespace UNR_Crossroad.Core
                 }
             }
         }
-
+        // Далее методы загружают спрайты, при этом переворачивая их по 90 градусов (для разных направлений)
         private static void LoadUpSprite()
         {
             for (int i = 0; i < SpriteLibUp.Length; i++)
@@ -140,7 +142,7 @@ namespace UNR_Crossroad.Core
                 SpriteLibLeft[i] = _tmpBitmap;
             }
         }
-
+        // Далее загружаем изображения светофоров, переворачивая их по 90 градусов
         private static void LoadDownLightsSprite()
         {
             SpriteLibDownLights[0] = new Bitmap(Image.FromFile("img\\Lights\\Red.png"));
@@ -189,7 +191,7 @@ namespace UNR_Crossroad.Core
             SpriteLibLeftLights[2] = _tmpBitmap;
             Thread.Sleep(_delay * 5); 
         }
-
+        // Далее загружаем пешеходов, переворачивая их по 90 градусов
         private static void LoadPeopleLibLeft()
         {
             for (int i = 0; i < SpriteLibLeftPeople1.Length; i++)

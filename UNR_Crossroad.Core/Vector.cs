@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace UNR_Crossroad.Core
 {
+    // Класс реализации двумерного вектора. Для определения координат или направлений
     public struct Vector
     {
-        public double X ;
+        // Переменные вектора
+        public double X;
         public double Y;
 
         public Vector(double x, double y)

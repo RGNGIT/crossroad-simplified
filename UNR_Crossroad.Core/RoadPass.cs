@@ -5,6 +5,7 @@ namespace UNR_Crossroad.Core
 {
     public static class RoadPass
     {
+        // Рандомный момент, определяем куда повернуть
         public static CTurn WhatIsTurn(int pol,int maxpol)
         {
             if (maxpol == 4 || maxpol == 3 || maxpol == 2)

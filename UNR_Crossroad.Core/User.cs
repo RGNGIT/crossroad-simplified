@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace UNR_Crossroad.Core
 {
+    // Класс юзера симулятора (Мы). В данный момент не используется в полной мере, ибо мы автоматом логинимся под админом
     public class User
     {
         public string Login { get; set; }
@@ -18,8 +19,7 @@ namespace UNR_Crossroad.Core
             Level = lvl;
         }
     }
-    
-
+    // Уровень доступа
     public enum AccLevel
     {
         Player = 0,

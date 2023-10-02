@@ -21,6 +21,7 @@ namespace UNR_Crossroad.Forms
 
         private void bt_enter_Click(object sender, EventArgs e)
         {
+            // Чекаем есть ли перекресток с таим названием в базе. Если есть то бан, если нет, то говорим системе что можно записать
             if (DbEngine.NameCheck(tb_name.Text))
             {
                 MessageBox.Show("Перекресток с таким названием уже существует!");

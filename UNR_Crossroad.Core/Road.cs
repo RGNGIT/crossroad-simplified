@@ -3,14 +3,17 @@ using System.Windows.Forms;
 
 namespace UNR_Crossroad.Core
 {
+    // Класс дорога
     public class Road
     {
+        // Количество полос на каждое направление
         public int VerticalRoadLeft { get; set; }
         public int VerticalRoadRight { get; set; }
         public int HorizontRoadUp { get; set; }
         public int HorizontRoadDown { get; set; }
+        // Ручка, которая рисует эти полосы на экране
         private Pen _myPen;
-
+        // Конструктор класса
         public Road(int vertLeft, int vertRight,int horUp,int horDown)
         {
             VerticalRoadLeft = vertLeft;
@@ -18,11 +21,12 @@ namespace UNR_Crossroad.Core
             HorizontRoadUp = horUp;
             HorizontRoadDown = horDown;
         }
-
+        // Рендер дороги (отрисовка)
         public void RenderRoad(Panel p, PaintEventArgs e)
         {
+            // Создаем ручку для зарисовки серого цвета
             _myPen = new Pen(Color.FromArgb(64, 64, 64), 1);
-
+            // Далее рисуем дороги вместе с разделительными полосами
             _myPen.Width = VerticalRoadLeft * 40;
             e.Graphics.DrawLine(_myPen, p.Width / 2 - _myPen.Width / 2, 0, p.Width / 2 - _myPen.Width / 2, p.Height);
             _myPen.Width = VerticalRoadRight * 40;
@@ -31,7 +35,7 @@ namespace UNR_Crossroad.Core
             e.Graphics.DrawLine(_myPen, 0, p.Height / 2 - _myPen.Width / 2, p.Width, p.Height / 2 - _myPen.Width / 2);
             _myPen.Width = HorizontRoadDown * 40;
             e.Graphics.DrawLine(_myPen, 0, p.Height / 2 + _myPen.Width / 2, p.Width, p.Height / 2 + _myPen.Width / 2);
-
+            // Тут разделительная полоса белая
             _myPen.Color = Color.White;
 
             _myPen.Width = 2;
@@ -40,6 +44,7 @@ namespace UNR_Crossroad.Core
             e.Graphics.DrawLine(_myPen, 0, p.Height / 2, p.Width / 2 - VerticalRoadLeft * 40, p.Height / 2); //9:00
             e.Graphics.DrawLine(_myPen, p.Width / 2 + VerticalRoadRight * 40, p.Height / 2, p.Width, p.Height / 2);//3:00
             _myPen.Width = 1;
+            // Цикл зарисовки полос дорог (далее на каждое направление, по часам)
             for (int i = 1; i < VerticalRoadLeft; i++)
             {
                 int penPositionUp = p.Height / 2 - HorizontRoadUp * 40;
